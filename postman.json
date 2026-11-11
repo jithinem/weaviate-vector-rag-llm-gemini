@@ -1,0 +1,56 @@
+{
+  "info": {
+    "_postman_id": "be5fc6f4-b2b9-4c5f-9ab1-b35013d3e77d",
+    "name": "Weaviate Gemini Vector Search",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "Add document",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Vector databases store embeddings to enable semantic search.\",\n  \"source\": \"My notes\"\n}"
+        },
+        "url": "{{baseUrl}}/documents"
+      }
+    },
+    {
+      "name": "Ask",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"How does vector search support a RAG application?\"\n}"
+        },
+        "url": "{{baseUrl}}/ask"
+      }
+    }
+  ]
+}
